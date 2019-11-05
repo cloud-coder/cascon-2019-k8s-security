@@ -46,6 +46,7 @@ secrets:
 imagePullSecrets:
 - name: default-us-icr-io
 ```
+1. export PS1='$'
 1. kubectl apply -f ./service-a-before/Pod.yml -n org-1
 1. Check that the pod is running. kubectl get po -n org-1
 1. Test service functionality. kubectl port-forward service-a-before -n org-1 3000:3000
