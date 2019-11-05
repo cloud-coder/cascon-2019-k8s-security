@@ -94,14 +94,12 @@ bash: /files/root/.ssh/authorized_keys: Permission denied
 ![list of images](./screenshots/image-list-after.png)
 
 ## Deploy service
+This section deploys the final good image.
 
-1. cd ..
-1. kubectl apply -f ./service-a-after/Pod1.yml -n org-1
-1. Verify service and then delete. kubectl delete po --all -n org-1
 1. kubectl apply -f ./service-a-after/Pod2.yml -n org-1
 1. Check that the pod is running. kubectl get po -n org-1
 1. Test service functionality. kubectl port-forward service-a-after -n org-1 3000:3000
-1. Go to http://localhost:3000/ and you should see a welcome message
+1. Go to http://localhost:3000/ and you should see a welcome message for service-a-after
 
 # Build and push all services in topology
 Let's build and push all services used in the sample topology.
