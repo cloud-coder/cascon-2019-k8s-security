@@ -1,4 +1,4 @@
-# Image and Pod Hygiene
+# Image and Pod Security
 This scenario will deal with limiting the attack surface of containers via Dockerfile and Pod spec suggested practices.  You will learn how to force non-root execution of containers, as well as how IBM container registry can help with detercting image vulnerabilities. 
 
 # Setup
