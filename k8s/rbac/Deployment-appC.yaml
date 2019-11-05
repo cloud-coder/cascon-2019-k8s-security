@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-c
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-c
+  template:
+    metadata:
+      name: service-c
+      labels:
+        app: service-c
+    spec:
+      containers:
+      - name: service-c
+        image: us.icr.io/cason2019kb/service-c
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3020
+      imagePullSecrets:
+      - name: qa-us-icr-io

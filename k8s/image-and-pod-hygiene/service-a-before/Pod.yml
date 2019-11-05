@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: service-a-before
+  labels:
+    app: service-a-before
+spec:
+  hostNetwork: true
+  containers:
+  - image: us.icr.io/cascon-2019-k8s-security/service-a-before
+    name: service-a-before
+    volumeMounts:
+    - mountPath: /files
+      name: file-storage
+  volumes:
+  - name: file-storage
+    hostPath:
+      path: /

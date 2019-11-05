@@ -1,0 +1,21 @@
+{
+  "name": "kbsecurity",
+  "version": "1.0.0",
+  "description": "This is demo app for kubernetes security",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "kubernetes"
+  ],
+  "author": "Hitesh Garg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

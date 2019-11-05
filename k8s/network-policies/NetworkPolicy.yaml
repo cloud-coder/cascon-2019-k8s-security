@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np-cascon
+  namespace: dev
+spec:
+  podSelector:
+    matchLabels:
+      app: service-b
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: service-a
+  egress:
+    - to:
+      - namespaceSelector:
+          matchLabels:
+           user: qa
+      - podSelector:
+          matchLabels:
+           app: service-c
+
+          
+---
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-service-a
+  namespace: dev
+spec:
+  podSelector: 
+    matchLabels:
+      app: service-a
+  policyTypes:
+  - Ingress
