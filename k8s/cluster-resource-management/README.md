@@ -1,5 +1,5 @@
 # Cluster Resource Management
-In this scenario, we want to connstrain pods from requesting more than x amount of CPU and memory and limit them to a max for each.  We will focus on service-a in the org-1 namespace.
+In this scenario, we want to constrain pods from requesting more than x amount of CPU and memory and limit them to a max for each.  We will focus on service-a in the org-1 namespace.
 
 ## Deploy service-a with no limits
 
