@@ -69,7 +69,7 @@ spec:
   securityContext:
     runAsUser: 1000
 ```
-1. kubectl apply -f ./service-a-after/Pod.yml -n org-1
+1. kubectl apply -f ./service-a-after/Pod1.yml -n org-1
 1. You now cannot access the root filesystem. kubectl exec -it service-a-after -n org-1 sh
 ```
 node@kube-bmrj3o8d0ktakrrlomc0-cascon2019-default-00000206:/usr/src/app$ cat /root/.ssh/id_rsa.pub >> /files/root/.ssh/authorized_keys
