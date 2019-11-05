@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service-b
+  name: service-a
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: service-b
+      app: service-a
   template:
     metadata:
-      name: service-b
+      name: service-a
       labels:
-        app: service-b
+        app: service-a
     spec:
       containers:
-      - name: service-b
-        image: us.icr.io/cason2019kb/service-b
+      - name: service-a
+        image: us.icr.io/cascon-2019-k8s-security/service-a
         imagePullPolicy: Always
         ports:
-        - containerPort: 3010
+        - containerPort: 3000
       imagePullSecrets:
-      - name: dev-us-icr-io
+      - name: default-us-icr-io
+ 

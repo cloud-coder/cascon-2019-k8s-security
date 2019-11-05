@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: psp-cascon
+  name: psp-pod
 spec:
   containers:
     - name:  service-a
-      image: us.icr.io/cason2019kb/service-a
+      image: us.icr.io/cascon-2019-k8s-security/service-a
       securityContext:
         privileged: true

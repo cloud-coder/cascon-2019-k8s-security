@@ -1,7 +1,7 @@
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
-  name: psp-cascon
+  name: psp
 spec:
   privileged: false  # Don't allow privileged pods!
   # The rest fills in some required fields.

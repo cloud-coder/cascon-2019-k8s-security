@@ -3,7 +3,6 @@ This scenario will deal with limiting the attack surface of containers via Docke
 
 # Setup
 1. You have configured your kubectl command line to point to a k8s cluster 
-1. The k8s cluster supoprts PVCs
 1. All commands below are run relative to this directory
 
 # service-a-before

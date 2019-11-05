@@ -3,29 +3,29 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: dev-rolebinding
-  namespace: dev
+  name: org-1-rolebinding
+  namespace: org-1
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: kb-security
 subjects:
 - kind: ServiceAccount
-  name: dev
-  namespace: dev
+  name: org-1-service-account
+  namespace: org-1
 
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: qa-rolebinding
-  namespace: qa
+  name: org-2-rolebinding
+  namespace: org-2
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: kb-security
 subjects:
 - kind: ServiceAccount
-  name: qa
-  namespace: dev
+  name: org-2-service-account
+  namespace: org-2

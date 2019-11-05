@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: service-c
-        image: us.icr.io/cason2019kb/service-c
+        image: us.icr.io/cascon-2019-k8s-security/service-c
         imagePullPolicy: Always
         ports:
-        - containerPort: 3020
+        - containerPort: 3000
       imagePullSecrets:
-      - name: qa-us-icr-io
+      - name: default-us-icr-io

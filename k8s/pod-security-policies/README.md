@@ -16,21 +16,38 @@
       The order of these non-mutating PodSecurityPolicies doesn’t matter.
    1. If the pod must be defaulted or mutated, the first PodSecurityPolicy (ordered by name) to allow the pod is 
       selected.
+
 ### Demo
+In this demo we will see how default IBM pod security policies allow to run container as privileged. We will unauthorize the existing policies from service accounts and see without any psp not able to create pod. Finally, will create new pod security policy to restrict priviledge and authorize by creating new cluster role and clusterbinding to service account.
 
 * To see existing policies  
 `kubectl get psp`
 
-* Remove existing polices for all service accounts  
-`kubectl get clusterrolebinding privileged-psp-user -o yaml > privileged-psp-user.yaml`  
-`kubectl apply -f privileged-psp-user.yaml`
+* Unauthorize existing polices for all service accounts  
+`kubectl get clusterrolebinding privileged-psp-user -o yaml > privileged-psp-user.yaml`  Remove serviceaccounts and authenticated users.   
+`kubectl apply -f privileged-psp-user.yaml`    
+`kubectl get clusterrolebinding restricted-psp-user -o yaml > restricted-psp-user.yaml`  Remove serviceaccounts and authenticated users.  
+`kubectl apply -f restricted-psp-user.yaml`   
 
-* Try to create pod as privilege user using service account dev in dev namespace.  
-` kubectl create -f POD.yaml  --as=system:serviceaccount:dev:dev -n dev`
+* Try to create pod without any psp.  
+` kubectl create -f POD.yaml  --as=system:serviceaccount:org-1:org-1-service-account -n org-1`   
+It will throw forbidden: unable to validate against any pod security policy
 
 * Now add the psp and authorize the policy using rolebinding.  
 `kb create -f PSP.yaml`  
 `kb create -f ClusterRole.yaml`   
-`kb create -f ClusterRoleBinding.yaml`   
+`kb create -f ClusterRoleBinding.yaml` 
+
+* Try to create pod as privilege container using service account org-1 in org-1 namespace.  
+` kubectl create -f POD.yaml  --as=system:serviceaccount:org-1:org-1-service-account -n org-1`   
+It will throw forbidden again, as against policy.
+
+* Try to create pod without privilege container using service account org-1 in org-1 namespace.
+  Modilfy pod and run `kubectl apply -f ./POD.yaml --as=system:serviceaccount:org-1:org-1-service-account -n org-1`
+  Pod created successful
+
+* Restore orignial psp.
 
 * For reference: https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+
+

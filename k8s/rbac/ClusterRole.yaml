@@ -4,5 +4,5 @@ metadata:
   name: kb-security
 rules:
 - apiGroups: ["", "extensions", "apps"]
-  resources: ["pods", "configmaps", "secrets", "deployments"]
-  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  resources: ["pods", "configmaps", "secrets", "deployments", "replicasets", "services"]
+  verbs: ["get", "list", "watch", "create", "update", "delete"]

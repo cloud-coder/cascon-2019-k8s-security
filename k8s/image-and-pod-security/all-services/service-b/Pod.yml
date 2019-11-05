@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: service-b
+  labels:
+    app: service-b
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+  - image: us.icr.io/cascon-2019-k8s-security/service-b
+    name: service-b
+
