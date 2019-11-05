@@ -40,8 +40,8 @@ pod/service-a created
 # Ops add resource quotas on node port and load balancers
 
 1. kubectl delete po service-a-node-port -n org-1
-1. kubectl apply -f ./cluster-resource-management/quota.yml -n org-1
-1. kubectl apply -f ./cluster-resource-management/node-port.yml -n org-1
+1. kubectl apply -f ./quota.yml -n org-1
+1. kubectl apply -f ./node-port.yml -n org-1
 
 ```
 Chriss-MacBook-Pro-2:k8s chris$ kubectl apply -f ./cluster-resource-management/node-port.yml -n org-1
