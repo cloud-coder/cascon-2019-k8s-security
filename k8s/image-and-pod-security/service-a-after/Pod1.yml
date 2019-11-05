@@ -11,5 +11,11 @@ spec:
   containers:
   - image: us.icr.io/cascon-2019-k8s-security/service-a-before
     name: service-a-before
-
+    volumeMounts:
+    - mountPath: /files
+      name: file-storage
+  volumes:
+  - name: file-storage
+    hostPath:
+      path: /
 
